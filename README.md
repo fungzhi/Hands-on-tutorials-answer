@@ -1,6 +1,10 @@
+Get your answer with "git clone https://github.com/fungzhi/Hands-on-tutorials-answer.git"
+
 Before starting to deploy answers, please run following commands:
 
 ///
+
+cd Hands-on-tutorials-answer
 
 python3 -m venv .env
 
