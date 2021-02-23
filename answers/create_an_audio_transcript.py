@@ -11,7 +11,7 @@ class S3Template(core.Stack):
         #create an S3 bucket
         myBucket = s3.Bucket(self,
                              'MyFirstBucket',
-                             bucket_name='create-audio-transcript-test1',
+                             bucket_name='create-audio-transcript-test10',
                              public_read_access= True,
                              )
 
@@ -21,11 +21,13 @@ app.synth()
 
 
 #upload an S3 file
+"""
 s3_resource = boto3.resource('s3')
 s3_resource.meta.client.upload_file(
     Filename='answers/transcribe-sample.mp3',
     Bucket='create-audio-transcript-test1',
     Key='transcribe-sample.mp3')
+"""
 
 
 #upload S3 file to transcribe
