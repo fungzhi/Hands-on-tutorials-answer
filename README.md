@@ -12,8 +12,6 @@ source .env/bin/activate
 
 pip install -r requirements.txt
 
-pip install boto3
-
 ///
 
 After that you can try "cdk ls" to list the stacks in the app
