@@ -19,13 +19,15 @@ setuptools.setup(
     packages=setuptools.find_packages(where="answers"),
 
     install_requires=[
-        "aws-cdk.core==1.89.0",
-        "aws-cdk.aws_sqs==1.89.0",
-        "aws-cdk.aws_sns==1.89.0",
-        "aws-cdk.aws_sns_subscriptions==1.89.0",
-        "aws-cdk.aws_s3==1.89.0",
-        "aws-cdk.aws_dynamodb==1.89.0",
-        "aws-cdk.aws_ec2==1.89.0",
+        "aws-cdk.core~=1.0",
+        "aws-cdk.aws_sqs~=1.0",
+        "aws-cdk.aws_sns~=1.0",
+        "aws-cdk.aws_sns_subscriptions~=1.0",
+        "aws-cdk.aws_s3~=1.0",
+        "aws-cdk.aws_dynamodb~=1.0",
+        "aws-cdk.aws_ec2~=1.0",
+        "aws-cdk.aws-s3-deployment~=1.0",
+        "boto3",
     ],
 
     python_requires=">=3.6",

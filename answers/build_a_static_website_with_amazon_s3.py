@@ -24,8 +24,8 @@ class StaticWebsiteBucket(core.Stack):
         
         # Upload Static Website
         s3_deploy.BucketDeployment(self, "DeployWebsite",
-            sources = [s3_deploy.Source.asset("./answer")],
-            # But upload all files inside ./answer
+            sources = [s3_deploy.Source.asset("./answers")],
+            # But upload all files inside ./answers
             destination_bucket = bucket,
-            destination_key_prefix = "answer/site-contents"
+            destination_key_prefix = "answers/site-contents"
         )
