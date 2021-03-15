@@ -3,19 +3,13 @@
 
 # This is the answer of Hands-on Tutorial: Filter-Messages-Published-to-Topics
 
-    # cd cloudprojectmarker/cdk-answer
-
-    # npm install -g aws-cdk@latest
+    # cd Hands-on-tutorials-answer
     
-    # npm install -g aws-cdk@latest --force
-    
-    # python -m venv .env
+    # python3 -m venv .env
     
     # source .env/bin/activate
     
-    # pip install -r requirements.txt
-    
-    # python -m pip install aws-cdk.aws-sns-subscriptions aws-cdk.aws-sns aws-cdk.aws-sqs
+    # pip install -r requirements.txt ( aws-cdk.aws-sns-subscriptions aws-cdk.aws-sns aws-cdk.aws-sqs )
     
     # cdk ls   (output: CreateSNSSQS)
     
