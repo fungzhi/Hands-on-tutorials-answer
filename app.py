@@ -14,6 +14,9 @@ from answers.build_a_static_website_with_amazon_s3 import StaticWebsiteBucket
 from answers.introduction_to_aws_identity_and_access_management import IAM
 from answers.create_an_audio_transcript import S3Template
 #from answers.create_an_audio_transcript import Transcriptfile
+from answers.Create_EC2_Instance import ec2Stack
+from answers.Create_Security_Group import sgStack
+
 
 app = core.App()
 CreateSNSSQS(app, "FilterMessagesPublishedtoTopics", env={'region': 'us-east-1'})
@@ -27,6 +30,9 @@ StaticWebsiteBucket(app, "BuildStaticWebsiteWithAmazonS3", env={'region': 'us-ea
 IAM(app, "IntroductionToAwsIdentityAndAccessManagement", env={'region': 'us-east-1'})
 S3Template(app, "CreateAnAudioTranscript", env={'region': 'us-east-1'})
 #Transcriptfile(app, "Transcriptfile", env={'region': 'us-east-1'})
+ec2Stack(app, "CreateEC2Instance", env={'region': 'us-east-1'})
+sgStack(app, "CreateSecurityGroup", env={'region': 'us-east-1'})
+
 
 
 app.synth()
