@@ -1,4 +1,4 @@
-# This is the answer of Tutorial: Launching and configuring an Amazon EC2 instance Activity Guide
+# This is the answer of Tutorial: Creating a Virtual Private Cloud Activity
 
     # cd Hands-on-tutorials-answer
     
@@ -8,9 +8,9 @@
     
     # pip install -r requirements.txt ( aws-cdk.aws-ec2 )
     
-    # cdk ls   (output: LaunchingAndConfiguringAnAmazonEC2InstanceActivityGuide)
+    # cdk ls   (output: CreatingVirtualPrivateCloudActivity)
     
-    # cdk deploy LaunchingAndConfiguringAnAmazonEC2InstanceActivityGuide   (go check the CoudFormation and there will be a stack called "LaunchingAndConfiguringAnAmazonEC2InstanceActivityGuide")
+    # cdk deploy CreatingVirtualPrivateCloudActivity   (go check the CoudFormation and there will be a stack called "CreatingVirtualPrivateCloudActivity")
 
     # Answer deployed!
     
