@@ -9,13 +9,13 @@ from answers.create_an_audio_transcript import S3Template
 from answers.create_and_query_a_nosql_table import CreateTable, InputData, QueryData
 from answers.Creating_Virtual_Private_Cloud_Activity import CreateVPC
 from answers.Filter_Messages_Published_to_Topics import CreateSNSSQS
+from answers.Introduction_to_Amazon_DynamoDB_Activity_Guide import CreateDynamoDBTable
 from answers.introduction_to_aws_identity_and_access_management import IAM
 from answers.Store_and_Retrieve_a_File import S3Bucket
 #from answers.send_messages_between_distributed_applications import CreateQueue, SendMessages
 # Tentative Draft Version
 # from marking.creating_an_amazon_cloudfront_distribution import CloudFrontWebSite
 #from answers.create_an_audio_transcript import Transcriptfile
-from answers.Create_EC2_Instance import ec2Stack
 #from answers.Create_Security_Group import sgStack
 
 
@@ -27,9 +27,9 @@ S3Template(app, "CreateAnAudioTranscript", env=env)
 CreateTable, InputData, QueryData(app, "CreateAndQueryNoSQLTable", env=env)
 CreateVPC(app, "CreatingVirtualPrivateCloudActivity", env=env)
 CreateSNSSQS(app, "FilterMessagesPublishedtoTopics", env=env)
+CreateDynamoDBTable(app, "IntroductionToAmazonDynamoDBActivityGuide", env=env)
 IAM(app, "IntroductionToAwsIdentityAndAccessManagement", env=env)
 S3Bucket(app, "StoreAndRetrieveFile", env=env)
-ec2Stack(app, "CreateEC2Instance", env=env)
 #sgStack(app, "CreateSecurityGroup", env=env)
 # Tentative Draft Version
 # CreateQueue, SendMessages, CreateTable, InputData, QueryData, StaticWebsiteBucket, CloudFrontWebSite, IAM(app, "marking")
