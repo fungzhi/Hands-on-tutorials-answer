@@ -16,9 +16,9 @@ class LambdaFunction(core.Stack):
         super().__init__(scope, id, **kwargs)
         
         lambda_function = _lambda.Function(
-            self,"abc_test",
+            self,"mylambdafunction",
             function_name = "HelloWorld",
-            runtime = _lambda.Runtime.PYTHON_3_6,
+            runtime = _lambda.Runtime.PYTHON_3_8,
             code = _lambda.Code.asset("lambda"),
-            handler = "lambda.lambda_handler"
+            handler = "lambda_function.lambda_handler"
         )
