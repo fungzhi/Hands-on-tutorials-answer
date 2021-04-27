@@ -1,108 +1,41 @@
 # Hands-on Lab: Send Messages Between Distributed Applications
-# Tutorial Link: https://aws.amazon.com/getting-started/hands-on/send-messages-distributed-applications/
+# Tutorial Link: https://aws.amazon.com/getting-started/hands-on/send-messages-distributed-applications
 
-from aws_cdk import (aws_sqs as sqs, core)
-import boto3
-from botocore.exceptions import ClientError
-import logging
+# This is the answer of Hands-on Tutorial: Send Messages Between Distributed Applications
 
-logger = logging.getLogger(__name__)
-ClientError = boto3.exceptions(__name__)
-
-
-class CreateQueue(core.Stack):
-    def __init__(self, app: core.App, id: str, **kwargs) -> None:
-        super().__init__(app, id)
+    # cd Hands-on-tutorials-answer
     
-    # Create an Amazon SQS Queue
-    def create_queue(self, name, attributes=None):
-        sqs = boto3.resource('sqs')
-        sqs.create_queue(
-            QueueName='Orders',
-            Attributes=None
-        )
+    # python3 -m venv .env
+    
+    # source .env/bin/activate
+    
+    # pip install -r requirements.txt ( aws-cdk.aws-sqs )
+    
+    # cdk ls   (Output: SendMessagesQueue)
+    
+    # cdk deploy SendMessagesQueue
+        # (Go check the CloudFormation and there will be a stack called "SendMessagesQueue")
+    
+# Answer deployed!
 
+from aws_cdk import (
+    core,
+    aws_sqs as sqs
+)
 
-class SendMessages(core.Stack):
-    # Send Messages to the Queue
-    def send_message(self, queue, message_body, message_attributes):
-        try:
-            response = queue.send_message(
-                MessageBody=message_body,
-                MessageAttributes=message_attributes
-            )
-        except ClientError as error:
-            logger.exception("Send message failed: %s", message_body)
-            raise error
-        else:
-            return response
+class CreateSqsQueue(core.Stack):
+    
+    def __init__(self, scope: core.Construct, id: str, **kwargs) -> None:
+        super().__init__(scope, id, **kwargs)
+    
+        # Create an Amazon SQS Queue: "Orders"
+        queue = sqs.Queue(self, "Orders", queue_name="Orders")
 
+        # Try to Send Messages to the Queue like the tutorial(Step 3) then you will succeed
+        
+#  You may delete your stack(SendMessagesQueue) to clean up your environment
 
-    def send_messages(self, queue, messages):
-        try:
-            entries = [{
-                'Id': str(ind),
-                'MessageBody': msg['1 x Widget @ $29.99 USD'
-                                '2 x Widget Cables @ $4.99'],
-                'MessageAttributes': msg['Online']}
-                for ind, msg in enumerate(messages)]
-            response = queue.send_messages(Entries=entries)
-            if 'Successful' in response:
-                for msg_meta in response['Successful']:
-                    logger.info(
-                        "Message sent: %s: %s",
-                        msg_meta['MessageId'],
-                        messages[int(msg_meta['Id'])]['body']
-                    )
-            if 'Failed' in response:
-                for msg_meta in response['Failed']:
-                    logger.warning(
-                        "Failed to send: %s: %s",
-                        msg_meta['MessageId'],
-                        messages[int(msg_meta['Id'])]['body']
-                    )
-        except ClientError as error:
-            logger.exception("Send messages failed to queue: %s", queue)
-            raise error
-        else:
-            return response
+    # cdk destroy SendMessagesQueue
+        # (Go check the CloudFormation a stack called "SendMessagesQueue" will be destroyed)
 
-"""
-class DeleteMessages(core.Stack):
-    # Retrieve and Delete a Message
-    def receive_messages(self, queue, max_number, wait_time):
-        try:
-            messages = queue.receive_messages(
-                MessageAttributeNames=['Order-Type'],
-                MaxNumberOfMessages=max_number,
-                WaitTimeSeconds=wait_time
-            )
-            for msg in messages:
-                logger.info("Received message: %s: %s", msg.message_id, msg.body)
-        except ClientError as error:
-            logger.exception("Couldn't receive messages from queue: %s", queue)
-            raise error
-        else:
-            return messages
-
-
-    def delete_message(self, message):
-        try:
-            message.delete()
-            logger.info("Deleted message: %s", message.message_id)
-        except ClientError as error:
-            logger.exception("Couldn't delete message: %s", message.message_id)
-            raise error
-
-
-class DeleteSQS(core.Stack):
-    # Delete the Queue
-    def delete_queue(self, queue):
-        try:
-            delete_message(message=delete)
-            queue.delete(queue_name='Orders')
-            logger.info("Deleted Queue: %s", queue.queue_name)
-        except ClientError as error:
-            logger.exception("Couldn't delete queue: %s", queue.queue_name)
-            raise error
-"""
+# Clean up finished!
