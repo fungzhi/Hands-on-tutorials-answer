@@ -11,7 +11,7 @@
     
     # cdk ls   (output: CreateAnAudioTranscript)
 
-    # cdk deploy CreateAnAudioTranscript (go check the CoudFormation and there will be a stack called "CreateAnAudioTranscript", check S3 it will create a bucket called 'create-an-audio-transcript')
+    # cdk deploy CreateAnAudioTranscript (go check the CoudFormation and there will be a stack called "CreateAnAudioTranscript", check S3 it will create a bucket called 'create-an-audio-transcript-test')
     
     # delete lines 45, 51, 55 and 66 ["""]
     
@@ -19,7 +19,7 @@
     
     # Answer deployed!
 
-    # To prevent effects other answers, please remember to delete the transcribe jobs, S3 bucket, "CreateAnAudioTranscript" stack and add ["""] again in lines 45, 51, 55, 66 after checking the answer
+    # To prevent effects other answers, please remember to delete S3 bucket, "CreateAnAudioTranscript" stack and add ["""] again in lines 45, 51, 55, 66 after checking the answer
 
 from aws_cdk import (aws_s3 as s3, core)
 import time
@@ -32,7 +32,7 @@ class S3Template(core.Stack):
         #The bucker name can be reused for student accounts until a personal account is registered, if you need to change bucker name, pleace change lines 35, 49, 58 bucket name together)
         myBucket = s3.Bucket(self,
                              'MyFirstBucket',
-                             bucket_name='create-an-audio-transcript',
+                             bucket_name='create-an-audio-transcript-test',
                              public_read_access= True,
                              )
 
@@ -46,7 +46,7 @@ app.synth()
 s3_resource = boto3.resource('s3')
 s3_resource.meta.client.upload_file(
     Filename='answers/transcribe-sample.mp3',
-    Bucket='create-an-audio-transcript',
+    Bucket='create-an-audio-transcript-test',
     Key='transcribe-sample.mp3')
 """
 
@@ -55,7 +55,7 @@ s3_resource.meta.client.upload_file(
 """
 transcribe = boto3.client('transcribe')
 job_name = "sample-transcription-job"
-job_uri = "s3://create-an-audio-transcript/transcribe-sample.mp3"
+job_uri = "s3://create-an-audio-transcript-test/transcribe-sample.mp3"
 class Transcriptfile(core.Stack):
     transcribe.start_transcription_job(
     TranscriptionJobName=job_name,
