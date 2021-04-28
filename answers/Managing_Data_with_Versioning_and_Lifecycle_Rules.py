@@ -15,7 +15,7 @@ class LifecycleRuleBucket(core.Stack):
         #Create an S3 bucket
         bucket = s3.Bucket(self,
             id = "lifecyclerulebucket", 
-            bucket_name = "lifecycle-rule-bucket", 
+            bucket_name = "versiong-and-lifecycle-rule-bucket", 
             versioned = True,
             lifecycle_rules = [
                 s3.LifecycleRule(
