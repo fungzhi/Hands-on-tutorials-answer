@@ -1,5 +1,24 @@
-# pip install aws_cdk.aws_s3
-# pip install aws_cdk.aws_s3_deployment
+#A Cloud Guru Hand on lab: Managing Data in S3 with Versioning and Lifecycle Rules
+
+#https://learn.acloud.guru/handson/9366814c-d237-4e04-9b64-e7c4e0cf1884
+
+    # cd Hands-on-tutorials-answer
+    
+    # python3 -m venv .env
+    
+    # source .env/bin/activate
+    
+    # pip install -r requirements.txt
+    
+    # pip install aws_cdk.aws_s3
+    
+    # pip install aws_cdk.aws_s3_deployment
+    
+    # cdk ls (output:VersioningAndLifecycleRules)
+    
+    # cdk deploy VersioningAndLifecycleRules
+    
+    # Answer deployed!
 
 from aws_cdk import (
     aws_s3 as s3,
@@ -12,7 +31,7 @@ class LifecycleRuleBucket(core.Stack):
     def __init__(self, app: core.App, id: str, **kwargs) -> None:
         super().__init__(app, id)
         
-        #Create an S3 bucket
+        #Create an S3 bucket, Enable versioning, Assign a Lifecycle Rule
         bucket = s3.Bucket(self,
             id = "lifecyclerulebucket", 
             bucket_name = "versiong-and-lifecycle-rule-bucket", 
@@ -30,7 +49,7 @@ class LifecycleRuleBucket(core.Stack):
             ]
         )
         
-        
+        #Create Folder and upload one object
         s3_deployment.BucketDeployment(self, "Deployment",
             sources = [s3_deployment.Source.asset("./Images")],
             destination_bucket = bucket,
