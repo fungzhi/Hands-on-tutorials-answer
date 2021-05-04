@@ -1,5 +1,4 @@
 # Lab: Create A Firehose
-# Tutorial Link: https://aws.amazon.com/getting-started/hands-on/send-messages-distributed-applications
 
 # This is the answer of Hands-on Tutorial: Create A Firehose
 
