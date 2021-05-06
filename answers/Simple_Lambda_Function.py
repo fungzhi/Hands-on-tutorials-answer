@@ -1,6 +1,5 @@
-#A Cloud Guru Hand on lab: Creating a Simple AWS Lambda Function
- 
-#https://learn.acloud.guru/handson/f2b58b6b-2a05-435a-8746-ca1ff25b9773
+# A Cloud Guru Hand on lab: Creating a Simple AWS Lambda Function
+# Lab link: https://learn.acloud.guru/handson/f2b58b6b-2a05-435a-8746-ca1ff25b9773
 
     # cd Hands-on-tutorials-answer
     
@@ -15,6 +14,7 @@
     # cdk bootstrap aws://001500016315/us-east-1
     
     # cdk ls (output:SimpleLambdaFunction)
+        # (Go check the CloudFormation and there will be a stack called "SimpleLambdaFunction")
     
     # cdk deploy SimpleLambdaFunction
     

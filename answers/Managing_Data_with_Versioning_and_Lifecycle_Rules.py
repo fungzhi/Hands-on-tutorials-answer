@@ -1,6 +1,5 @@
-#A Cloud Guru Hand on lab: Managing Data in S3 with Versioning and Lifecycle Rules
-
-#https://learn.acloud.guru/handson/9366814c-d237-4e04-9b64-e7c4e0cf1884
+# A Cloud Guru Hand on lab: Managing Data in S3 with Versioning and Lifecycle Rules
+# Lab link: https://learn.acloud.guru/handson/9366814c-d237-4e04-9b64-e7c4e0cf1884
 
     # cd Hands-on-tutorials-answer
     
@@ -15,6 +14,7 @@
     # pip install aws_cdk.aws_s3_deployment
     
     # cdk ls (output:VersioningAndLifecycleRules)
+        # (Go check the CloudFormation and there will be a stack called "VersioningAndLifecycleRules)")
     
     # cdk deploy VersioningAndLifecycleRules
     
