@@ -18,6 +18,30 @@ pip install -r requirements.txt
 
 ///
 
+Upgrade your CDK
+
+///
+
+sudo yum -y update
+
+sudo yum -y install aws-cli
+
+sudo -H pip install awscli --upgrade
+
+python -m ensurepip --upgrade
+
+python -m pip install --upgrade pip
+
+python -m pip install --upgrade virtualenv
+
+npm install -g aws-cdk@latest
+
+which npm
+
+npm install -g aws-cdk@latest --force
+
+///
+
 After that you can try "cdk ls" to list the stacks in the app
 
 If stacks were shown, try "cdk deploy xxx(stack name)" to deploys your answers!!
