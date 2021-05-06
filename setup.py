@@ -27,6 +27,7 @@ setuptools.setup(
         "aws-cdk.aws_dynamodb~=1.0",
         "aws-cdk.aws_ec2~=1.0",
         "aws-cdk.aws-s3-deployment~=1.0",
+        "aws-cdk.aws-kinesisfirehose",
         "boto3",
     ],
 
