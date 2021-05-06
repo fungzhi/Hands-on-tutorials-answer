@@ -15,8 +15,7 @@ from answers.Introduction_to_Amazon_DynamoDB_Activity_Guide import CreateDynamoD
 from answers.Simple_Lambda_Function import LambdaFunction
 from answers.Managing_Data_with_Versioning_and_Lifecycle_Rules import LifecycleRuleBucket
 from answers.create_a_firehose import CreateFirehose
-#from answers.create_an_audio_transcript import Transcriptfile
-#from answers.Create_Security_Group import sgStack
+from answers.Create_Security_Group import sgStack
 
 
 env = core.Environment(account=os.environ["CDK_DEFAULT_ACCOUNT"], region="us-east-1")
@@ -33,8 +32,8 @@ CreateDynamoDBTable(app, "IntroductionToAmazonDynamoDBActivityGuide", env=env)
 LambdaFunction(app, "SimpleLambdaFunction", env=env)
 LifecycleRuleBucket(app, "VersioningAndLifecycleRules", env=env)
 CreateFirehose(app, "FirehoseDeliveryStream", env=env)
-#sgStack(app, "CreateSecurityGroup", env=env)
-#Transcriptfile(app, "Transcriptfile", env=env)
+sgStack(app, "CreateSecurityGroup", env=env)
+
 
 
 app.synth()
