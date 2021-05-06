@@ -28,8 +28,8 @@ class CreateSqsQueue(core.Stack):
     def __init__(self, scope: core.Construct, id: str, **kwargs) -> None:
         super().__init__(scope, id, **kwargs)
     
-        # Create an Amazon SQS Queue: "Orders"
-        queue = sqs.Queue(self, "Orders", queue_name="Orders")
+        # Create an Amazon SQS Queue: "ANS-Orders"
+        queue = sqs.Queue(self, "ANS-Orders", queue_name="ANS-Orders")
 
         # Try to Send Messages to the Queue like the tutorial(Step 3) then you will succeed
         

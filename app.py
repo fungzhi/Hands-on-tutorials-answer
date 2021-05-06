@@ -16,7 +16,7 @@ from answers.Simple_Lambda_Function import LambdaFunction
 from answers.Managing_Data_with_Versioning_and_Lifecycle_Rules import LifecycleRuleBucket
 from answers.create_a_firehose import CreateFirehose
 #from answers.create_an_audio_transcript import Transcriptfile
-#from answers.Create_Security_Group import sgStack
+from answers.Create_Security_Group import sgStack
 
 
 env = core.Environment(account=os.environ["CDK_DEFAULT_ACCOUNT"], region="us-east-1")
@@ -27,13 +27,13 @@ S3Template(app, "CreateAnAudioTranscript", env=env)
 CreateVPC(app, "CreatingVirtualPrivateCloudActivity", env=env)
 CreateSNSSQS(app, "FilterMessagesPublishedtoTopics", env=env)
 S3Bucket(app, "StoreAndRetrieveFile", env=env)
-CreateSqsQueue(app, "SendMessagesQueue", env=env)
+CreateSqsQueue(app, "SendMessagesBetweenDistributedApplications", env=env)
 CreateDynamodbNoSqlTable(app, "DynamodbNoSqlTable", env=env)
 CreateDynamoDBTable(app, "IntroductionToAmazonDynamoDBActivityGuide", env=env)
 LambdaFunction(app, "SimpleLambdaFunction", env=env)
 LifecycleRuleBucket(app, "VersioningAndLifecycleRules", env=env)
 CreateFirehose(app, "FirehoseDeliveryStream", env=env)
-#sgStack(app, "CreateSecurityGroup", env=env)
+sgStack(app, "CreateSecurityGroup", env=env)
 #Transcriptfile(app, "Transcriptfile", env=env)
 
 
