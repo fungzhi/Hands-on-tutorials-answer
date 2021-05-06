@@ -11,9 +11,9 @@
     
     # pip install -r requirements.txt ( aws-cdk.aws-sns-subscriptions aws-cdk.aws-sns aws-cdk.aws-sqs )
     
-    # cdk ls   (output: CreateSNSSQS)
+    # cdk ls   (output: FilterMessagesPublishedtoTopics)
     
-    # cdk deploy CreateSNSSQS   (go check the CoudFormation and there will be a stack called "CreateSNSSQS")
+    # cdk deploy FilterMessagesPublishedtoTopics   (go check the CoudFormation and there will be a stack called "FilterMessagesPublishedtoTopics")
     
     # Answer deployed!
 
